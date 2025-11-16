@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>יומן פגישות Outlook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>יומן פגישות Outlook</h1>
+      <p class="subtitle">נהל את הפגישות שלך בקלות ובנוחות מתוך קובץ האקסל של היומן</p>
+    </header>
+
+    <section class="card upload-card">
+      <label class="file-label">
+        <span>בחר קובץ אקסל מהיומן</span>
+        <input type="file" id="excelFile" accept=".xlsx,.xls,.csv">
+      </label>
+      <div id="statusMessage" class="status-message">לא נטען עדיין קובץ.</div>
+    </section>
+
+    <section class="card filters-card">
+      <div class="quick-buttons">
+        <button id="todayBtn" class="btn primary">היום</button>
+        <button id="tomorrowBtn" class="btn primary">מחר</button>
+        <button id="weekBtn" class="btn primary">שבוע קדימה</button>
+        <button id="monthBtn" class="btn primary">חודש קדימה</button>
+      </div>
+
+      <div class="range-row">
+        <label for="dateTo">מהיום עד תאריך:</label>
+        <input type="date" id="dateTo">
+        <button id="showBtn" class="btn secondary">הצג אירועים</button>
+      </div>
+
+      <div class="viewToggle">
+        <button id="cardsViewBtn" class="btn secondary active">תצוגת כרטיסים</button>
+        <button id="tableViewBtn" class="btn secondary">תצוגת טבלה</button>
+      </div>
+
+      <div class="top-actions">
+        <button id="fullscreenBtn" class="btn secondary">תצוגת מסך מלא</button>
+        <button id="printBtn" class="btn secondary">הדפס</button>
+      </div>
+    </section>
+
+    <section id="eventsContainer" class="events-card card">
+      <p class="hint">בחר קובץ אקסל כדי לראות את האירועים.</p>
+    </section>
+  </div>
+
+  <button id="exitFullscreenBtn" class="btn exit-btn">חזרה</button>
+</body>
+</html>

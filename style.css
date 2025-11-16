@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: #f3f4f8;
+  direction: rtl;
+  text-align: right;
+}
+
+.page {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.subtitle {
+  margin: 4px 0 16px;
+  color: #555;
+  font-size: 14px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+.upload-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.file-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #1d4ed8;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  max-width: 260px;
+}
+
+.file-label input[type=file] {
+  display: none;
+}
+
+.status-message {
+  font-size: 13px;
+  color: #555;
+}
+
+.status-ok {
+  color: #0b8457;
+}
+
+.status-error {
+  color: #b3261e;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+.btn.secondary {
+  background: #e0e7ff;
+  color: #1d4ed8;
+}
+
+.btn.secondary.active {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.range-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.range-row input[type=date] {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.viewToggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.events-card {
+  min-height: 80px;
+}
+
+.event-card {
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f9fafb;
+}
+
+.event-card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.event-meta {
+  font-size: 14px;
+  color: #374151;
+}
+
+.event-meta span {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.event-description {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.hint {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.no-events {
+  margin: 0;
+  font-size: 15px;
+  color: #64748b;
+}
+
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.events-table th,
+.events-table td {
+  border: 1px solid #e2e8f0;
+  padding: 8px;
+}
+
+.events-table th {
+  background: #eff4ff;
+  font-weight: 600;
+}
+
+#exitFullscreenBtn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: none;
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+/* Fullscreen mode: hide chrome, show only events + exit button */
+.fullscreen-active .header,
+.fullscreen-active .upload-card,
+.fullscreen-active .filters-card {
+  display: none !important;
+}
+
+.fullscreen-active #exitFullscreenBtn {
+  display: inline-block;
+}
+
+/* Print: only events, no header/controls/exit */
+@media print {
+  .header,
+  .upload-card,
+  .filters-card,
+  .viewToggle,
+  .top-actions,
+  #exitFullscreenBtn {
+    display: none !important;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #eventsContainer {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+  .event-meta span {
+    display: block;
+    margin: 2px 0;
+  }
+}
