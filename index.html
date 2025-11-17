@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>יומן פגישות Outlook</title>
-
-  <!-- חובה כדי שהאייקון יופיע באייפון -->
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="apple-touch-icon.png">
-
-  <!-- מניפסט כדי ש-iPhone יזהה כאפליקציה -->
-  <link rel="manifest" href="manifest.json">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script defer src="app.js"></script>
+  <!-- איקון לאייפון (חובה!) -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- iPhone full-screen mode -->
+  <!-- מונע ספארי לשים סקרינשוט -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- manifest.json -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- XLSX reader -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <!-- Main JS -->
+  <script defer src="app.js"></script>
 </head>
 
 <body>
   <div class="page">
+
+    <!-- כותרת -->
     <header class="header">
       <h1>יומן פגישות Outlook</h1>
       <p class="subtitle">נהל את הפגישות שלך בקלות ובנוחות מתוך קובץ האקסל של היומן</p>
     </header>
 
+    <!-- העלאת קובץ אקסל -->
     <section class="card upload-card">
       <label class="file-label">
         <span>בחר קובץ אקסל מהיומן</span>
@@ -37,7 +43,9 @@
       <div id="statusMessage" class="status-message">לא נטען עדיין קובץ.</div>
     </section>
 
+    <!-- כפתורי סינון -->
     <section class="card filters-card">
+
       <div class="quick-buttons">
         <button id="todayBtn" class="btn primary">היום</button>
         <button id="tomorrowBtn" class="btn primary">מחר</button>
@@ -62,33 +70,14 @@
       </div>
     </section>
 
+    <!-- הצגת אירועים -->
     <section id="eventsContainer" class="events-card card">
       <p class="hint">בחר קובץ אקסל כדי לראות את האירועים.</p>
     </section>
   </div>
 
-  <!-- כפתור חזרה בזמן מסך מלא -->
-  <button id="exitFullscreenBtn" class="btn exit-btn" style="display:none;">חזרה</button>
-
-  <script>
-    // מסך מלא — כניסה
-    document.getElementById("fullscreenBtn").onclick = () => {
-      document.querySelector(".filters-card").style.display = "none";
-      document.querySelector(".upload-card").style.display = "none";
-      document.querySelector(".header").style.display = "none";
-      document.getElementById("exitFullscreenBtn").style.display = "block";
-      document.body.classList.add("fullscreen-mode");
-    };
-
-    // מסך מלא — יציאה
-    document.getElementById("exitFullscreenBtn").onclick = () => {
-      document.querySelector(".filters-card").style.display = "block";
-      document.querySelector(".upload-card").style.display = "block";
-      document.querySelector(".header").style.display = "block";
-      document.getElementById("exitFullscreenBtn").style.display = "none";
-      document.body.classList.remove("fullscreen-mode");
-    };
-  </script>
+  <!-- כפתור חזרה במסך מלא -->
+  <button id="exitFullscreenBtn" class="btn exit-btn">חזרה</button>
 
 </body>
 </html>
